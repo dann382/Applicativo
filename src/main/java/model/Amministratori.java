@@ -1,11 +1,25 @@
 package model;
+import controller.Controller;
 
 public class Amministratori extends Utenti{
 
-    public void aggiungiVolo(){}
+    private Controller controller;
 
-    public void aggiornaVolo(){}
+    public Amministratori(String username, String password, Controller controller) {
+        super(username, password);
+        this.controller = controller;
+    }
 
-    public void assegnaGate(){}
+    public void aggiungiVolo(Voli volo){
+        controller.aggiungiVolo(volo);
+    }
+
+    public void aggiornaVolo(String codiceVolo, Voli nuovoVolo){
+        controller.aggiornaVolo(codiceVolo, nuovoVolo);
+    }
+
+    public void assegnaGate(String codiceVolo, Gate gate){
+        controller.assegnaGate(codiceVolo, gate);
+    }
 
 }
